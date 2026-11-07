@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Replace https://www.your-domain.com with the real domain before launch. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.your-domain.com/</loc><lastmod>2026-11-07</lastmod><priority>1.0</priority></url>
+  <url><loc>https://www.your-domain.com/about.html</loc><lastmod>2026-11-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.your-domain.com/services.html</loc><lastmod>2026-11-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.your-domain.com/principals.html</loc><lastmod>2026-11-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.your-domain.com/operations.html</loc><lastmod>2026-11-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.your-domain.com/contact.html</loc><lastmod>2026-11-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.your-domain.com/privacy.html</loc><lastmod>2026-11-07</lastmod><priority>0.3</priority></url>
+</urlset>
