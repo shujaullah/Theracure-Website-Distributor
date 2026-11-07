@@ -31,8 +31,12 @@ The pages show **dashed placeholder boxes** wherever real material is needed. Ev
 
 - [ ] **Logo:** the current logo was taken from the PDF at 425×175 px. Replace `assets/images/logo.png` with the original vector or high-resolution file.
 - [ ] **Principal logos:** add only authorised logos (`index.html` and `principals.html`). The HTML comments next to the grids show the markup to use.
-- [ ] **Photos:** real office and warehouse photographs only (`index.html`, `about.html`, `operations.html`).
-- [ ] **Company history:** year established and verified history (`about.html`, marked with an orange tag).
+- [ ] **Photos (optional, currently hidden):** photo areas were removed until good-quality real photos exist. Each spot is marked in the HTML with `<!-- Photos hidden until ... -->`. When photos are ready, put them in `assets/images/` and add them to:
+  - `about.html`: next to "Company background" (currently the "At a glance" panel)
+  - `operations.html`: a "Our facilities" gallery section above "From order to delivery"
+  - `index.html` (optional): the "At a glance" panel or the map in the operations section
+- [x] **Year established:** October 2026 (`about.html`, and `foundingDate` in the structured data on `index.html` and `contact.html`).
+- [ ] **Company history:** optional, any further verified milestones (`about.html`).
 - [ ] **Warehousing and inventory services:** publish these only after they are confirmed (`services.html`, shown as a notice for now).
 - [ ] **Operations process:** confirm the 5-step order-to-delivery flow with the operations team (`operations.html`).
 - [ ] **Quality practices, licences and certifications:** publish only verified details (`operations.html`, shown as a notice for now).
@@ -46,12 +50,31 @@ The pages show **dashed placeholder boxes** wherever real material is needed. Ev
 
 ## Forms
 
-Both forms check the required fields, email and phone format, and include a hidden honeypot field to block simple spam bots. A static site has no server, so on submit the form opens the visitor's email app with the message already filled in:
+Both forms check the required fields, email and phone format, and include a hidden honeypot field to block simple spam bots. Submissions are delivered by email through [Web3Forms](https://web3forms.com), because GitHub Pages has no server of its own.
 
+**Setup (one time):**
+1. Go to https://web3forms.com, enter the email address that should receive inquiries, and click **Create Access Key**. The key arrives by email.
+2. Paste the key into `WEB3FORMS_KEYS` at the top of the forms section in `assets/js/main.js`:
+   ```js
+   var WEB3FORMS_KEYS = {
+     contact: "your-key-here",     // contact.html
+     principal: "your-key-here"    // principals.html (same key, or a second key for another inbox)
+   };
+   ```
+3. Commit and push, then send a test inquiry from the live site.
+
+**Spam protection** has three layers:
+1. **hCaptcha** (free through Web3Forms, no separate account): a captcha widget on both forms. The visitor must complete it before the form will send. In the Web3Forms dashboard (app.web3forms.com) → your form → settings, **hCaptcha must be enabled**, or the server won't check the captcha.
+2. **Web3Forms' server-side spam filter**: always on, no setup.
+3. **Hidden honeypot field**: silently drops submissions from simple bots that fill in every field.
+
+Each key delivers to one email address. To send principal inquiries to a different person, create a second key with that person's email and use it for `principal`.
+
+**Until a key is added**, that form falls back to opening the visitor's email app with the message pre-filled, addressed to the form's `data-recipient`:
 - Contact form → `khu.ahmed09@gmail.com`
 - Principal inquiry → `syedkingasif@yahoo.com` and `khu.ahmed09@gmail.com`
 
-To change a recipient, edit the form's `data-recipient` attribute. For production, send submissions directly from the server instead: use Contact Form 7 or WPForms with reCAPTCHA or Turnstile on WordPress, or a form service such as Formspree on static hosting.
+If a submission fails (for example, no internet connection), the visitor keeps what they typed and is shown the email address to contact instead.
 
 ## Moving to WordPress (the platform named in the plan)
 
