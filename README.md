@@ -23,7 +23,7 @@ assets/images/         logo (taken from the PDF, transparent background), favico
 sitemap.xml, robots.txt
 ```
 
-Brand colours: Medical Blue `#07517D`, Healthcare Green `#4D9B70`, Dark Text `#233746`, Soft Background `#F2F7F8`.
+Colour theme ("fresh & vibrant", matched to the logo): deep navy `#0B2A4A`, blue `#0A6EB4`, emerald `#12A57A`, teal `#0FA3B1`, mint `#F2FAF7` and sky `#EEF6FD` backgrounds, and a blue-to-emerald gradient for buttons and highlights. All colours are CSS variables at the top of `assets/css/style.css`, so the whole site can be re-coloured in one place.
 
 ## Before launch: content to supply
 
